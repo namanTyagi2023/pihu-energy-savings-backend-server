@@ -22,6 +22,10 @@ mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
+app.get("/api/healthCheck", (req, res) => {
+  res.status(200).send({message : "Welcome to PIHU Energy Saving Limited Backend Server"})
+})
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
