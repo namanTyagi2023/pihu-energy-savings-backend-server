@@ -18,7 +18,7 @@ router.post('/addClient', async (req, res) => {
         contractPrice: clientInfo.contractPrice,
         contractDuration: clientInfo.contractDuration,
         supplierName: clientInfo.supplierName,
-        meetingNotes: [clientInfo.note]
+        meetingNotes: [clientInfo.meetingNote]
     })
 
     // Save the client to the database
