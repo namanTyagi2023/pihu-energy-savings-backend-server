@@ -5,8 +5,10 @@ const clientSchema = new mongoose.Schema({
     customerLastName: String,
     companyName: String,
     dateAdded: String,
-    dateOfContract: String,
     supplierName: String,
+    contractDate: String,
+    contractDuration: String,
+    contractPrice: [{type: mongoose.Schema.Types.Number}],
     meetingNotes: [{type: mongoose.Schema.Types.String}]
 });
 

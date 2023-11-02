@@ -14,6 +14,9 @@ router.post('/addClient', async (req, res) => {
         customerLastName: clientInfo.lastName,
         companyName: clientInfo.companyName,
         dateAdded: dateUtil.getTodaysDate(),
+        contractDate: clientInfo.contractDate,
+        contractPrice: clientInfo.contractPrice,
+        contractDuration: clientInfo.contractDuration,
         supplierName: clientInfo.supplierName,
         meetingNotes: [clientInfo.note]
     })
@@ -25,8 +28,8 @@ router.post('/addClient', async (req, res) => {
     res.status(201).json(newclient);
 
   } catch (error) {
-    console.error('Error adding client:', error);
-    console.error('This might happen because of some error in the database or duplicate combination of first name and company name already exists');
+    console.log('Error adding client:', error);
+    console.log('This might happen because of some error in the database or duplicate combination of first name and company name already exists');
     res.status(500).json({ error: error});
   }
 
@@ -50,7 +53,7 @@ router.get('/getClient', async (req, res) => {
 
     res.json(clients);
   } catch (error) {
-    console.error('Error searching for clients:', error);
+    console.log('Error searching for clients:', error);
     res.status(500).json({ error: 'Could not search for clients' + req.toArray + "ok" + req.query.toString });
   }
 });
@@ -80,8 +83,8 @@ router.post('/addMeetingNote', async (req, res) => {
     res.status(201).json(response);
 
   } catch (error) {
-    console.error('Error updating client:', error);
-    console.error('This might happen because of some error in the database or duplicate combination of first name, last name and company name already exists');
+    console.log('Error updating client:', error);
+    console.log('This might happen because of some error in the database or duplicate combination of first name, last name and company name already exists');
     res.status(500).json({ error: error});
   }
 
